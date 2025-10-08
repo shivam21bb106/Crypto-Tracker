@@ -15,7 +15,9 @@
     "@mui/lab": "^7.0.1-beta.18",
     "@mui/material": "^7.3.4",
     "@mui/styles": "^6.5.0",
+    "axios": "^1.12.2",
     "react": "^19.1.0",
+    "react-alice-carousel": "^2.9.1",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.9.3"
   },

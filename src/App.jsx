@@ -4,8 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./Pages/Home";
 import Coin from "./Pages/Coin";
-import { Box } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { createTheme } from '@mui/material/styles';
 
 const useStyles = makeStyles({
   App: {
@@ -17,20 +18,31 @@ const useStyles = makeStyles({
   },
 });
 
+const darkTheme = createTheme({
+  palette: {
+    primary: {
+      main: "#0c0101ff"
+    },
+    type: 'dark'
+  },
+});
+
 function App() {
   const classes = useStyles();
 
   return (
-    <BrowserRouter>
-      <div className={classes.App}>
-        <Header />
+    <ThemeProvider theme={darkTheme}>
+      <BrowserRouter>
+        <div className={classes.App}>
+          <Header />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/coins/:id" element={<Coin />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/coins/:id" element={<Coin />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
